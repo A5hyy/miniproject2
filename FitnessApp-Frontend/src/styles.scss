@@ -1,0 +1,174 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+.t-a-c {
+  text-align: center !important;
+}
+
+;
+
+.t-a-e {
+  text-align: end !important;
+}
+
+.t-a-c {
+  text-align: center;
+}
+
+.m-t-20 {
+  margin-top: 20px;
+}
+
+.m-t-50 {
+  margin-top: 50px;
+}
+
+.m-t-100 {
+  margin-top: 100px;
+}
+
+.m-l-20 {
+  margin-left: 10px;
+}
+
+.m-r-5 {
+  margin-right: 5px !important;
+}
+
+.p-10 {
+  padding: 10px !important;
+}
+
+.p-r-30 {
+  padding-right: 30px !important;
+}
+
+.p-l-30 {
+  padding-left: 30px !important;
+}
+
+.p-t-50 {
+  padding-top: 50px !important;
+}
+
+.p-t-100 {
+  padding-top: 100px !important;
+}
+
+.p-l-350 {
+  padding-left: 350px !important;
+}
+
+.p-r-350 {
+  padding-right: 350px !important;
+}
+
+.p-r-5 {
+  padding-right: 5px !important;
+}
+
+.cont {
+  overflow: auto;
+}
+
+.w-100 {
+  width: 100% !important;
+}
+
+.w-75 {
+  width: 75px;
+}
+
+.table-empty-msg {
+  padding: 30px !important;
+  text-align: center;
+  font-weight: 500;
+}
+
+.hs-com-descriptions {
+  text-align: center;
+  border: 1px solid green;
+  padding-top: 16px;
+}
+
+.b-c-darkgray {
+  background-color: darkgray;
+}
+
+.select-hs-code {
+  margin-top: 80px !important;
+}
+
+.mat-pop-window {
+  margin-top: 80px !important;
+}
+
+.hr-dialog {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.snack-bar-success {
+  margin: 0 !important;
+  position: absolute;
+  right: 25px;
+  top: 60px;
+
+  background-color: #388E3C !important;
+
+  button {
+    color: #FFF !important;
+  }
+}
+
+.snack-bar-error {
+  margin: 0 !important;
+  position: absolute;
+  right: 25px;
+  top: 60px;
+
+  background-color: #D32F2F !important;
+
+  button {
+    color: #FFF !important;
+  }
+}
+
+.snack-bar-warning {
+  margin: 0 !important;
+  position: absolute;
+  right: 25px;
+  top: 60px;
+
+  background-color: #FFA000 !important;
+
+  button {
+    color: #FFF !important;
+  }
+}
+
+.snack-bar-info {
+  margin: 0 !important;
+  position: absolute;
+  right: 25px;
+  top: 60px;
+
+  background-color: #303F9F !important;
+
+  button {
+    color: #FFF !important;
+  }
+}
+
+.snack-bar-custom {
+  margin: 0 !important;
+  position: absolute;
+  right: 25px;
+  top: 60px;
+
+  background-color: #5D4037;
+
+  button {
+    color: #FFF;
+  }
+}

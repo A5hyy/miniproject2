@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="p-t-100">
+    <div class="row">
+      <div class="col-md-8">
+        <h5>{{title}}</h5>
+      </div>
+      <div class="col-md-4 t-a-e">
+        <button
+          (click)="onAddNewWorkout(null)"
+          *ngIf="isAdmin()"
+          color="primary"
+          mat-raised-button
+          matTooltip="Add new workout">Add Workout
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card m-t-20">
+    <div class="card-body">
+      <table [dataSource]="dataSource" class="mat-elevation-z8" mat-table>
+
+        <ng-container matColumnDef="workoutID">
+          <th *matHeaderCellDef mat-header-cell>Workout ID</th>
+          <td *matCellDef="let element" mat-cell> {{element.workoutID}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="description">
+          <th *matHeaderCellDef mat-header-cell>Description</th>
+          <td *matCellDef="let element" mat-cell> {{element.description}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="steps">
+          <th *matHeaderCellDef mat-header-cell>Steps</th>
+          <td *matCellDef="let element" mat-cell> {{element.steps}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="count">
+          <th *matHeaderCellDef mat-header-cell>Count</th>
+          <td *matCellDef="let element" mat-cell> {{element.count}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <th *matHeaderCellDef mat-header-cell>
+            Actions
+          </th>
+          <td *matCellDef="let row" mat-cell>
+            <button (click)="view($event, row)" mat-icon-button
+                    matTooltip="View"
+                    type="button">
+              <mat-icon>visibility</mat-icon>
+            </button>
+            <button (click)="edit($event,row)" [disabled]="!isAdmin()"
+                    mat-icon-button
+                    matTooltip="Edit"
+                    type="button">
+              <mat-icon>create</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+        <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+      </table>
+    </div>
+  </div>
+</div>

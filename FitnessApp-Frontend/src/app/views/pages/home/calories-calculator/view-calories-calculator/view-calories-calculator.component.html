@@ -1,0 +1,168 @@
+<div class="container">
+  <div>
+    <img src="assets/images/GSKIMPACT_2020_EFC_062.jpg" style="width: 100%">
+  </div>
+
+  <div class="p-t-50">
+    <div class="row">
+      <div class="col-md-8">
+        <h5>Calories Calculator</h5>
+      </div>
+    </div>
+  </div>
+
+  <div class="card m-t-20">
+    <div class="card-body">
+      <div class="t-a-c m-t-20">
+        <p>
+          To lose weight, you need to eat fewer calories than you expend over time. Thus, learning how many calories you
+          <br>
+          “burn” every day is one of the most important steps you can take to lose weight. Use this calculator to
+          estimate <br>
+          how many calories you burn and how many you should eat every day to lose weight.
+        </p>
+      </div>
+
+      <hr>
+
+      <form [formGroup]="caloriesCalculatorForm" autocomplete="off" class="kt-form m-t-20" id="login-form">
+        <div class="row">
+          <div class="col-md-4">
+            <mat-form-field style="width: 100%;">
+              <mat-select
+                formControlName="unit"
+                placeholder="Unit">
+                <mat-option [value]="'IMPERIAL'">Imperial</mat-option>
+                <mat-option [value]="'METRIC'">Metric</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-4">
+            <mat-form-field style="width: 100%;">
+              <mat-select
+                formControlName="gender"
+                placeholder="Gender">
+                <mat-option [value]="'MALE'">Male</mat-option>
+                <mat-option [value]="'FEMALE'">Female</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-4">
+            <mat-form-field style="width: 100%;">
+              <mat-label>Weight</mat-label>
+              <input autocomplete="off"
+                     class="user-name"
+                     formControlName="weight"
+                     matInput
+                     min="0"
+                     placeholder="Weight"
+                     type="number"/>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <mat-form-field style="width: 100%;">
+              <mat-label>Height</mat-label>
+              <input autocomplete="off"
+                     class="user-name"
+                     formControlName="height"
+                     matInput
+                     min="0"
+                     placeholder="Height"
+                     type="number"/>
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-4">
+            <mat-form-field style="width: 100%;">
+              <mat-label>Age</mat-label>
+              <input autocomplete="off"
+                     class="user-name"
+                     formControlName="age"
+                     matInput
+                     min="0"
+                     placeholder="Age"
+                     type="number"/>
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-4">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <mat-form-field style="width: 100%;">
+              <mat-select
+                formControlName="activity"
+                placeholder="Activity">
+                <mat-option [value]="'1.15'">None (little to no physical activity)</mat-option>
+                <mat-option [value]="'1.3'">A little (1 to 3 hours of exercise or sports per week)</mat-option>
+                <mat-option [value]="'1.5'">Some (4 to 6 hours of exercise or sports per week)</mat-option>
+                <mat-option [value]="'1.7'">A lot (7 to 9 hours of exercise or sports per week)</mat-option>
+                <mat-option [value]="'1.9'">A TON (10+ hours of exercise or sports per week)</mat-option>
+                <mat-option [value]="'CUSTOM'">Custom activity multiplier</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <mat-form-field style="width: 100%;">
+              <mat-select
+                formControlName="bmr"
+                placeholder="BMR formula">
+                <mat-option [value]="'katch-mcardle'">Katch-McArdle</mat-option>
+                <mat-option [value]="'mifflin-st-jeor'">Mifflin-St Jeor (Recommended)</mat-option>
+                <mat-option [value]="'harris-benedict'">Revised Harris-Benedict</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 t-a-e">
+            <button
+              (click)="onCalculate()"
+              color="primary"
+              mat-raised-button>
+              Calculate
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <hr>
+
+      <div class="row m-t-20">
+        <div class="col-md-12 t-a-c">
+          <h5>Your Stat</h5>
+        </div>
+        <ng-container *ngIf="isCalculated">
+          <div class="col-md-12 t-a-c" style="display: flex">
+            <div class="col-md-6 t-a-c" style="margin-top: 50px">
+              <h6>2,679 Total Daily Energy Expenditure (TDEE)</h6>
+              <h6>1,786 Basal Metabolic Rate (BMR)</h6>
+            </div>
+            <div class="d-flex" style="height: 200px;">
+              <div class="vr"></div>
+            </div>
+
+            <div class="col-md-6 t-a-c" style="margin-top: 50px">
+              <h6>No activity : 2,053 cal</h6>
+              <h6>A little activity : 2,053 cal</h6>
+              <h6>Some activity : 2,053 cal</h6>
+              <h6>A lot of activity : 2,053 cal</h6>
+              <h6>A TON of activity : 2,053 cal</h6>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-nav-bar">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#/home">FitnessApp - [{{user.userName}} - {{userType}}]</a>
+    <button aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"
+            class="navbar-toggler"
+            data-bs-target="#navbarNavDropdown" data-bs-toggle="collapse" type="button">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item p-r-30">
+          <a aria-current="page" class="nav-link active" href="#/home">Home</a>
+        </li>
+        <li class="nav-item p-r-30">
+          <a aria-current="page" class="nav-link active" href="#/home/calories-calculator">Calories Calculator</a>
+        </li>
+        <li class="nav-item p-r-30">
+          <a aria-current="page" class="nav-link active" href="#/home/my-workouts">{{workoutsTitle}}</a>
+        </li>
+        <li class="nav-item p-r-30">
+          <a aria-current="page" class="nav-link active" href="#/home/exercises">Exercises</a>
+        </li>
+        <li *ngIf="isAdmin()" class="p-r-30 nav-item">
+          <a class="nav-link" href="#/home/users">Users</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+             id="navbarDropdownMenuLink" role="button" style="padding-right: 70px;">
+            Settings
+          </a>
+          <ul aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu">
+            <li><a (click)="onClickProfile()" class="dropdown-item">Profile</a></li>
+            <li><a (click)="onClickChangePassword()" class="dropdown-item">Change Password</a></li>
+            <li><a (click)="logout()" class="dropdown-item" href="#">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
+

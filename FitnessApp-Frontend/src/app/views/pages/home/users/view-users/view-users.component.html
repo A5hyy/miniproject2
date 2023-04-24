@@ -1,0 +1,185 @@
+<div class="container">
+  <div class="p-t-100">
+    <div class="row">
+      <div class="col-md-8">
+        <h5>Users</h5>
+      </div>
+      <div class="col-md-4 t-a-e">
+        <button
+          (click)="onAddUser(null)"
+          *ngIf="isAdmin()"
+          color="primary"
+          mat-raised-button
+          matTooltip="Add new user">Add User
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card m-t-20">
+    <div class="card-body">
+      <form [formGroup]="searchForm" autocomplete="off" class="kt-form" id="login-form">
+        <div class="row">
+          <div class="col-md-2">
+            <mat-form-field style="width: 100%;">
+              <mat-label>User Name</mat-label>
+              <input autocomplete="off"
+                     class="user-name"
+                     formControlName="userName"
+                     matInput
+                     placeholder="User Name"
+                     type="text"/>
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-2">
+            <mat-form-field style="width: 100%;">
+              <mat-label>First Name</mat-label>
+              <input autocomplete="off"
+                     class="first-name"
+                     formControlName="firstName"
+                     matInput
+                     placeholder="First Name"
+                     type="text"/>
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-2">
+            <mat-form-field style="width: 100%;">
+              <mat-label>Last Name</mat-label>
+              <input autocomplete="off"
+                     class="user-name"
+                     formControlName="lastName"
+                     matInput
+                     placeholder="Last Name"
+                     type="text"/>
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-2">
+            <mat-form-field style="width: 100%;">
+              <mat-label>Email</mat-label>
+              <input autocomplete="off"
+                     class="user-name"
+                     formControlName="email"
+                     matInput
+                     placeholder="Email"
+                     type="text"/>
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-2">
+            <mat-form-field style="width: 100%;">
+              <mat-select
+                formControlName="userType"
+                placeholder="User Type">
+                <mat-option [value]="'ALL'">All</mat-option>
+                <mat-option [value]="'ADMIN'">Admin</mat-option>
+                <mat-option [value]="'USER'">User</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-2">
+            <mat-form-field style="width: 100%;">
+              <mat-select
+                formControlName="status"
+                placeholder="Status">
+                <mat-option [value]="'ALL'">All</mat-option>
+                <mat-option [value]="'ACT'">Active</mat-option>
+                <mat-option [value]="'INA'">Inactive</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 t-a-e">
+            <button
+              (click)="onUserSearch()"
+              mat-raised-button
+              style="margin-right: 5px; background: #1abc9c">
+              Search
+            </button>
+
+            <button
+              (click)="onUserSearchClear()"
+              mat-raised-button
+              style="background: #bdc3c7">
+              Clear
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="card m-t-20">
+    <div class="card-body">
+      <table [dataSource]="dataSource" class="mat-elevation-z8" mat-table>
+
+        <ng-container matColumnDef="userName">
+          <th *matHeaderCellDef mat-header-cell>Username</th>
+          <td *matCellDef="let element" mat-cell> {{element.userName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="firstName">
+          <th *matHeaderCellDef mat-header-cell>First Name</th>
+          <td *matCellDef="let element" mat-cell> {{element.firstName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="lastName">
+          <th *matHeaderCellDef mat-header-cell>Last Name</th>
+          <td *matCellDef="let element" mat-cell> {{element.lastName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+          <th *matHeaderCellDef mat-header-cell>Email</th>
+          <td *matCellDef="let element" mat-cell> {{element.email}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="userType">
+          <th *matHeaderCellDef mat-header-cell>User Type</th>
+          <td *matCellDef="let element" mat-cell>
+            {{ userType[element.userType] }}
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+          <th *matHeaderCellDef mat-header-cell>Status</th>
+          <td *matCellDef="let element" mat-cell>
+            {{ status[element.status] }}
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <th *matHeaderCellDef mat-header-cell>
+            Actions
+          </th>
+          <td *matCellDef="let row" mat-cell>
+            <button (click)="view($event, row)" mat-icon-button
+                    matTooltip="View"
+                    type="button">
+              <mat-icon>visibility</mat-icon>
+            </button>
+            <button (click)="edit($event,row)" [disabled]="!isAdmin()"
+                    mat-icon-button
+                    matTooltip="Edit"
+                    type="button">
+              <mat-icon>create</mat-icon>
+            </button>
+            <ng-container *ngIf="isAdmin()">
+              <button (click)="resetPassword($event,row)" [disabled]="!isAdmin()"
+                      mat-icon-button
+                      matTooltip="Reset Password"
+                      type="button">
+                <mat-icon>report</mat-icon>
+              </button>
+            </ng-container>
+          </td>
+        </ng-container>
+
+        <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+        <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+      </table>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+<div id="card" style="text-align: center; padding-top: 200px;">
+  <div class="row">
+    <!--    <div class="col-md-4">-->
+    <mat-card-title>
+      <h3 style="color: #0F3460;">FitnessApp : Log In</h3>
+    </mat-card-title>
+
+    <mat-card-content class="t-a-c">
+      <form [formGroup]="loginForm" autocomplete="off" class="kt-form" id="login-form" style="padding-top: 25px;">
+
+        <div class="form-group" style="padding-top: 10px;">
+          <mat-form-field style="width: 300px;">
+            <mat-label>User Name</mat-label>
+            <input autocomplete="off"
+                   class="user-name"
+                   formControlName="userName"
+                   matInput
+                   placeholder="User Name"
+                   type="text"/>
+            <mat-error *ngIf="isControlHasError('userName','required')">
+              <strong>Required field</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-group" style="padding-top: 10px;">
+          <mat-form-field style="width: 300px;">
+            <mat-label>Password</mat-label>
+            <input autocomplete="off"
+                   class="password"
+                   formControlName="password"
+                   matInput
+                   placeholder="Password"
+                   type="password"/>
+            <mat-error *ngIf="isControlHasError('password','required')">
+              <strong>Required field</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <div style="padding-top: 35px;">
+            <button
+              style="margin-right:15px;"
+              (click)="submit()"
+              color="primary"
+              mat-raised-button>Sign In
+            </button>
+
+            <button
+              style="margin-right:15px;"
+              (click)="register()"
+              color="primary"
+              mat-raised-button>
+              Register
+            </button>
+          </div>
+        </div>
+      </form>
+    </mat-card-content>
+    <!--    </div>-->
+  </div>
+</div>

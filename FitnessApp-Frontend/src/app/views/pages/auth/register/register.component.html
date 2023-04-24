@@ -1,0 +1,151 @@
+<div>
+  <div class="row">
+    <div class="col-md-11 height-30px">
+      <h5>User Register</h5>
+    </div>
+    <div class="col-md-1 t-a-e">
+      <button
+        (click)="onCancelClick($event)"
+        aria-label="Close"
+        class="btn-close"
+        type="button">
+      </button>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <form [formGroup]="registerForm" autocomplete="off" class="kt-form" id="login-form" style="padding-top: 25px;">
+      <div class="row">
+        <div class="col-md-4">
+          <mat-form-field style="width: 100%;">
+            <mat-label>User Name</mat-label>
+            <input autocomplete="off"
+                   class="user-name"
+                   formControlName="userName"
+                   matInput
+                   placeholder="User Name"
+                   type="text"/>
+            <mat-error *ngIf="isControlHasError('userName','required')">
+              <strong>Required field</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-4">
+          <mat-form-field style="width: 100%;">
+            <mat-label>First Name</mat-label>
+            <input autocomplete="off"
+                   class="first-name"
+                   formControlName="firstName"
+                   matInput
+                   placeholder="First Name"
+                   type="text"/>
+            <mat-error *ngIf="isControlHasError('firstName','required')">
+              <strong>Required field</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-4">
+          <mat-form-field style="width: 100%;">
+            <mat-label>Last Name</mat-label>
+            <input autocomplete="off"
+                   class="user-name"
+                   formControlName="lastName"
+                   matInput
+                   placeholder="Last Name"
+                   type="text"/>
+            <mat-error *ngIf="isControlHasError('lastName','required')">
+              <strong>Required field</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <mat-form-field style="width: 100%;">
+            <mat-label>Email</mat-label>
+            <input autocomplete="off"
+                   class="user-name"
+                   formControlName="email"
+                   matInput
+                   placeholder="Email"
+                   type="text"/>
+            <mat-error *ngIf="isControlHasError('email','required')">
+              <strong>Required field</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-4">
+          <mat-form-field style="width: 100%;">
+            <mat-label>Password</mat-label>
+            <input autocomplete="off"
+                   class="first-name"
+                   formControlName="password"
+                   matInput
+                   placeholder="Password"
+                   type="password"/>
+            <mat-error *ngIf="isControlHasError('password','required')">
+              <strong>Required field</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-4">
+          <mat-form-field style="width: 100%;">
+            <mat-label>Confirm Password</mat-label>
+            <input autocomplete="off"
+                   class="user-name"
+                   formControlName="confirmPassword"
+                   matInput
+                   placeholder="Password"
+                   type="password"/>
+            <mat-error *ngIf="isControlHasError('confirmPassword','required')">
+              <strong>Required field</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Date of Birth</mat-label>
+            <input
+              matInput [matDatepicker]="picker"
+              formControlName="dateOfBirthStr"
+            >
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-md-12 t-a-e">
+      <button
+        (click)="onRegister($event)"
+        [disabled]="!isValidUpload()"
+        class="btn btn-primary"
+        type="button">
+        Register
+      </button>
+      <button
+        (click)="onCancelClick($event)"
+        class="btn btn-secondary m-l-20"
+        type="button">
+        Cancel
+      </button>
+    </div>
+  </div>
+
+</div>
