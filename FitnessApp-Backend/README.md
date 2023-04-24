@@ -109,7 +109,7 @@ create table t_user_role
 INSERT INTO t_user (USER_NAME, FIRST_NAME, LAST_NAME, PASSWORD, EMAIL, DOB, STATUS, CREATED_DATE, CREATED_BY,
                    MODIFIED_DATE, MODIFIED_BY, VERSION)
 VALUES ('system', 'System', 'Admin', '$2a$10$pyIAjUOABitzHn.CUyBiUel/yC5ezZAdIzrVtQPVQXFPeYqNiqhPi',
-       'gayanviraj21@gmail.com', now(), 'ACT', now(), null, null, null, 1);
+       'ashyalsher@gmail.com', now(), 'ACT', now(), null, null, null, 1);
 
 ############################################################################
 
